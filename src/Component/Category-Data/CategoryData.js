@@ -6,7 +6,7 @@ let data = [
     imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     id: 1,
     size: 4,
-    linkUrl: "shop/hats",
+    linkUrl: "/hats",
   },
   {
     title: "jackets",

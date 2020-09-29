@@ -1,18 +1,20 @@
-.category{
+.category-items{
     position: relative;
+    overflow: hidden;
 }
 .category img{
     width: 100% !important;
     height: 500px !important;
     object-fit: cover;
-    overflow: hidden !important;
     
 }
-.category img:hover{
+.category:hover{
     cursor: pointer;
     transform: scale(1.5);
     transition: transform 6s cubic-bezier(0.25,0.45,0.45,0.95);
-    overflow: hidden !important; 
+}
+.category:hover .content{
+    opacity: 1;
 }
 .content{
     position: absolute;
