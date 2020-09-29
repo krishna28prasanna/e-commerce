@@ -1,0 +1,11 @@
+.category{
+    position: relative;
+}
+.category img{
+    width: 100%;
+}
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

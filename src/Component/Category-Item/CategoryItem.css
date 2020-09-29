@@ -1,0 +1,31 @@
+.category{
+    position: relative;
+}
+.category img{
+    width: 100% !important;
+    height: 500px !important;
+    object-fit: cover;
+    overflow: hidden !important;
+    
+}
+.category img:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 6s cubic-bezier(0.25,0.45,0.45,0.95);
+    overflow: hidden !important; 
+}
+.content{
+    position: absolute;
+    top: 35% !important;
+    left: 35% !important;
+    background-color: #fff;
+    padding: 10px;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+.col-md-4{
+    padding: 0px !important;
+}
+.col-md-6{
+    padding: 0px !important;
+}
