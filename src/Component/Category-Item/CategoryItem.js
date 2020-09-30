@@ -19,9 +19,7 @@ const CategoryItem = (props) => {
                     handleClick(linkUrl);
                   }}
                 >
-                  <div className="img-over">
                     <img src={imageUrl} />
-                  </div>
 
                   <div className="content">
                     <h1>{title.toUpperCase()}</h1>

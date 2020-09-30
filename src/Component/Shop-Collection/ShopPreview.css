@@ -1,0 +1,30 @@
+.shop-details{
+    position: relative;
+    overflow: hidden;
+}
+.product img{
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+    
+}
+.product:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 6s cubic-bezier(0.25,0.45,0.45,0.95);
+}
+.product:hover .product-content{
+    display: block;
+}
+.product-content{
+    position: absolute;
+    top: 35% !important;
+    left: 35% !important;
+    display: none;
+}
+.product-spec{
+    float: right;
+}
+/* .add-cart{
+    display: none;
+} */
