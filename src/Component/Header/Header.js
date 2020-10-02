@@ -1,9 +1,11 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { auth } from "../../firebase/firebase.utils";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
+import CartIcon from "../Cart-Icon/CartIcon";
+import CartDropdown from "../Cart-Dropdown/CartDropdown";
 const Header = (props) => {
-  console.log("header",props)
+  console.log("header", props);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -26,17 +28,18 @@ const Header = (props) => {
             ) : (
               <Nav.Link href="/signup">Sign In</Nav.Link>
             )}
-
+            <CartIcon />
             <Nav.Link href="/">Contact Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <CartDropdown />
     </div>
   );
 };
-const mapStateToProps = state =>{
-  return{
-    currentUser : state.user.currentUser
-  }
-}
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.user.currentUser,
+  };
+};
 export default connect(mapStateToProps)(Header);
