@@ -3,7 +3,7 @@ import CustomButton from "../Custom-Button/CustomButton";
 import "./CartDropdown.css";
 import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import {hideCartDropdown} from "../Redux/Actions/Cart/CartDropdownAction"
+import {hideCartDropdown} from "../Redux/Actions/Cart/CartAction"
 
 const CartDropdown = ({ hidden, dispatch }) => {
   const handleClose = () => {

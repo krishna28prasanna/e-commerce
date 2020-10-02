@@ -1,8 +1,10 @@
+import {handleCartQty} from "./Cart.Utils"
 const initialState = {
   hidden: false,
+  cartItem : []
 };
 
-const cartDropdownReducer = (state = initialState, action) => {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "TOGGLE_CART_SHOW":
       return {
@@ -14,8 +16,13 @@ const cartDropdownReducer = (state = initialState, action) => {
         ...state,
         hidden: !state.hidden,
       };
+    case "ADD_CART_ITEM":
+      return{
+        ...state,
+        cartItem : handleCartQty(state.cartItem,action.payload)
+      }
     default:
       return state;
   }
 };
-export default cartDropdownReducer
+export default cartReducer

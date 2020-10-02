@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import {ReactComponent as ShoppingIcon} from "../../assets/shopping-bag.svg"
-import { showCartDropdown } from "../Redux/Actions/Cart/CartDropdownAction"
+import { showCartDropdown } from "../Redux/Actions/Cart/CartAction"
 import "./CartIcon.css"
 const CartIcon = ({showCartDropdown}) =>{
     return(
