@@ -9,6 +9,8 @@ import Homepage from "./Pages/Home-Page/Homepage";
 import ShopPage from "./Pages/Shop-Page/ShopPage";
 import Login from "./Pages/SignIn-Page/Login";
 import Register from "./Pages/SignUp-Page/Register";
+import {selectCurrentUser} from "./Component/Redux/User.Selector"
+import CheckoutPage from "./Pages/Checkout-page/CheckoutPage";
 class App extends React.Component {
   unsubscribeFromAuth = null;
   componentDidMount() {
@@ -38,11 +40,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <BrowserRouter>
+        <Header />
           <Switch>
             <Route path="/" component={Homepage} exact={true} />
             <Route path="/shop" component={ShopPage} />
+            <Route path="/checkout" component={CheckoutPage} />
             <Route
               path="/signup"
               render={() =>
@@ -61,9 +64,9 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = (state) => {
   return {
-    currentUser: user.currentUser,
+    currentUser: selectCurrentUser(state),
   };
 };
 const mapDispatchToProps = (dispatch) => {

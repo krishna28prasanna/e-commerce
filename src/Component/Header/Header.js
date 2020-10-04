@@ -4,19 +4,22 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../Cart-Icon/CartIcon";
 import CartDropdown from "../Cart-Dropdown/CartDropdown";
+import {selectCurrentUser} from "../Redux/User.Selector"
+import { Link } from "react-router-dom";
+import "./Header.css"
 const Header = (props) => {
   console.log("header", props);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand><Link to="/">E-Commerce</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link><Link to="/">Home</Link></Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/shop">Shop</Nav.Link>
+            <Nav.Link><Link to="/shop">Shop</Link></Nav.Link>
             {props.currentUser ? (
               <Nav.Link
                 onClick={() => {
@@ -26,12 +29,12 @@ const Header = (props) => {
                 Sign Out
               </Nav.Link>
             ) : (
-              <Nav.Link href="/signup">Sign In</Nav.Link>
+              <Nav.Link><Link to="/signup">Sign In</Link></Nav.Link>
             )}
             <CartIcon />
-            <Nav.Link href="/">Contact Us</Nav.Link>
+            <Nav.Link><Link to="/">Contact Us</Link></Nav.Link>
           </Nav>
-        </Navbar.Collapse>
+        </Navbar.Collapse> 
       </Navbar>
       <CartDropdown />
     </div>
@@ -39,7 +42,7 @@ const Header = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.user.currentUser,
+    currentUser: selectCurrentUser(state),
   };
 };
 export default connect(mapStateToProps)(Header);
