@@ -7,3 +7,7 @@ export const handleCartQty = (cartItem, addItem) => {
   }
   return [...cartItem, { ...addItem, quantity: 1 }];
 };
+
+export const removeCartItem = (cartItem, removeItem) => {
+  return cartItem.filter((item) => item.id != removeItem);
+};

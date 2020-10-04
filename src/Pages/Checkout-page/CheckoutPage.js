@@ -8,14 +8,14 @@ import {
 } from "../../Component/Redux/Cart.Selectors";
 import { createStructuredSelector } from "reselect";
 import CheckoutTable from "../../Component/Checkout-Table/CheckoutTable";
-const CheckoutPage = ({ cartItem, cartTotal }) => {
+const CheckoutPage = ({ cartItem, cartTotal,dispatch }) => {
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-8 offset-md-1">
           <div className="checkout-page">
             {cartItem.length != 0 ? (
-              <CheckoutTable item={cartItem} />
+              <CheckoutTable cartItem={cartItem} dispatch={dispatch} />
             ) : (
               <div className="checkout-empty">
                 <h4>Items Not Found</h4>
