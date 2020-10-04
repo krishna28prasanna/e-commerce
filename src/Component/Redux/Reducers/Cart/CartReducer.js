@@ -1,4 +1,4 @@
-import {handleCartQty,removeCartItem} from "./Cart.Utils"
+import {handleCartQty,removeCartItem,decreaseCartQty} from "./Cart.Utils"
 const initialState = {
   hidden: false,
   cartItem : []
@@ -25,6 +25,11 @@ const cartReducer = (state = initialState, action) => {
       return{
         ...state,
         cartItem : removeCartItem(state.cartItem,action.payload)
+      }
+    case "DECREMENT_CART_QTY":
+      return{
+        ...state,
+        cartItem : decreaseCartQty(state.cartItem,action.payload)
       }
     default:
       return state;

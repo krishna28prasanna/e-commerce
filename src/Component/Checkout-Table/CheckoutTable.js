@@ -1,8 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { removeCartItem } from "../Redux/Actions/Cart/CartAction";
+import { faTrashAlt,faAngleLeft,faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { addCartItem, decrementQty, removeCartItem } from "../Redux/Actions/Cart/CartAction";
 const CheckoutTable = ({cartItem,dispatch}) => {
   return (
     <div>
@@ -27,14 +27,19 @@ const CheckoutTable = ({cartItem,dispatch}) => {
           </tr>
         </thead>
         <tbody>
-          {cartItem.map(({ id, imageUrl, name, price, quantity }) => {
+          {cartItem.map((item) => {
+              const { id, imageUrl, name, price, quantity } = item
             return (
               <tr key={id}>
                 <td>
                   <img src={imageUrl} className="checkout-img" />
                 </td>
                 <td>{name}</td>
-                <td>{quantity}</td>
+                <td><FontAwesomeIcon icon={faAngleLeft} onClick={()=>{
+                    dispatch(addCartItem(item))
+                }} /><span style={{"padding": "0px 7px"}}>{quantity}</span><FontAwesomeIcon icon={faAngleRight} onClick={()=>{
+                    dispatch(decrementQty(item))
+                }} /></td>
                 <td>{price}</td>
                 <td>
                   <FontAwesomeIcon className="checkout-delete" icon={faTrashAlt} onClick={()=>{

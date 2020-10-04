@@ -8,3 +8,10 @@ export const removeCartItem = (item) => ({
   type: "REMOVE_CART_ITEM",
   payload: item,
 });
+
+export const decrementQty = (item) =>{
+  return{
+    type : "DECREMENT_CART_QTY",
+    payload : item
+  }
+}
