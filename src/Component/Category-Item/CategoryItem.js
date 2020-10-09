@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import {createStructuredSelector} from "reselect"
+import { selectDirectoryData } from "../Redux/Reducers/Directory/directory.selectors";
 import "./CategoryItem.css";
 const CategoryItem = (props) => {
   console.log(props.match.url);
@@ -9,7 +12,7 @@ const CategoryItem = (props) => {
   return (
     <div className="container-fluid">
       <div className="row">
-        {props.categoryData.map(({ id, size, imageUrl, title, linkUrl }) => {
+        {props.directory.map(({ id, size, imageUrl, title, linkUrl }) => {
           return (
             <div key={id} className={`col-md-${size}`}>
               <div className="category-items">
@@ -34,4 +37,7 @@ const CategoryItem = (props) => {
     </div>
   );
 };
-export default withRouter(CategoryItem);
+const mapStateToProps = createStructuredSelector({
+  directory : selectDirectoryData
+})
+export default withRouter(connect(mapStateToProps)(CategoryItem));

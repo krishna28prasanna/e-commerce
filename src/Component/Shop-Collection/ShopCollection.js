@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import ShopPreview from "./ShopPreview";
+import {createStructuredSelector} from "reselect"
+import { selectShopData } from "../Redux/Reducers/ShopData/shopData.Selector";
 const ShopCollection = (props) => {
   console.log("shop - ", props);
   return (
@@ -25,4 +28,7 @@ const ShopCollection = (props) => {
     </div>
   );
 };
-export default ShopCollection;
+const mapStateToProps = createStructuredSelector({
+  shopData : selectShopData
+})
+export default connect(mapStateToProps)(ShopCollection);

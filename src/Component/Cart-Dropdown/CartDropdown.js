@@ -5,7 +5,7 @@ import { Modal} from "react-bootstrap";
 import { connect } from "react-redux";
 import { hideCartDropdown } from "../Redux/Actions/Cart/CartAction";
 import CartItem from "../Cart-Items/CartItem";
-import {selectCartHidden,selectCartItems} from "../Redux/Cart.Selectors"
+import {selectCartHidden,selectCartItems} from "../Redux/Reducers/Cart/Cart.Selectors"
 import {createStructuredSelector} from "reselect"
 import { Link } from "react-router-dom";
 const CartDropdown = ({ hidden, dispatch, cartItem}) => {

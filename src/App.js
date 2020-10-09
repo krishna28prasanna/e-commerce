@@ -9,7 +9,7 @@ import Homepage from "./Pages/Home-Page/Homepage";
 import ShopPage from "./Pages/Shop-Page/ShopPage";
 import Login from "./Pages/SignIn-Page/Login";
 import Register from "./Pages/SignUp-Page/Register";
-import {selectCurrentUser} from "./Component/Redux/User.Selector"
+import {selectCurrentUser} from "./Component/Redux/Reducers/User/User.Selector"
 import CheckoutPage from "./Pages/Checkout-page/CheckoutPage";
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -22,6 +22,7 @@ class App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
         console.log("User ref");
         userRef.onSnapshot((snapshot) => {
+          console.log("snap - ",snapshot)
           setCurrentUser({
             id: snapshot.id,
             ...snapshot.data(),

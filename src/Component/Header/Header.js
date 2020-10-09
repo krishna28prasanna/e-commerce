@@ -4,7 +4,7 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../Cart-Icon/CartIcon";
 import CartDropdown from "../Cart-Dropdown/CartDropdown";
-import {selectCurrentUser} from "../Redux/User.Selector"
+import {selectCurrentUser} from "../Redux/Reducers/User/User.Selector"
 import { Link } from "react-router-dom";
 import "./Header.css"
 const Header = (props) => {
@@ -29,7 +29,7 @@ const Header = (props) => {
                 Sign Out
               </Nav.Link>
             ) : (
-              <Nav.Link><Link to="/signup">Sign In</Link></Nav.Link>
+              <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
             )}
             <CartIcon />
             <Nav.Link><Link to="/">Contact Us</Link></Nav.Link>

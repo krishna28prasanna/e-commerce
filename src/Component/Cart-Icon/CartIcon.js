@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 import { showCartDropdown } from "../Redux/Actions/Cart/CartAction";
 import "./CartIcon.css";
-import {selectCartItemsCount} from "../Redux/Cart.Selectors"
+import {selectCartItemsCount} from "../Redux/Reducers/Cart/Cart.Selectors"
 const CartIcon = ({ showCartDropdown, itemCount }) => {
   return (
     <div className="cart-icon" onClick={showCartDropdown}>

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   selectCartItems,
   selectCartTotal,
-} from "../../Component/Redux/Cart.Selectors";
+} from "../../Component/Redux/Reducers/Cart/Cart.Selectors";
 import { createStructuredSelector } from "reselect";
 import CheckoutTable from "../../Component/Checkout-Table/CheckoutTable";
 const CheckoutPage = ({ cartItem, cartTotal,dispatch }) => {

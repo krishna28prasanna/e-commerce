@@ -1,19 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Route } from "react-router-dom";
+import CollectionPreview from "../../Component/Shop-Collection/CollectionPreview";
 import ShopCollection from "../../Component/Shop-Collection/ShopCollection";
-import shopData from "./ShopData";
-class ShopPage extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      shopItems: shopData,
-    };
-  }
-  render() {
+const ShopPage = (props) => {
+  console.log('page - ',props)
     return (
       <div>
-        <ShopCollection shopData={this.state.shopItems} />
+        <Route path={`${props.match.path}`} component={ShopCollection} exact /> 
+        <Route path={`${props.match.path}/:categoryId`} component={CollectionPreview} exact /> 
       </div>
     );
-  }
 }
 export default ShopPage;

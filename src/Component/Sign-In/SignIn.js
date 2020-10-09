@@ -1,5 +1,5 @@
 import React from "react"
-import { auth } from "../../firebase/firebase.utils"
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils"
 import CustomButton from "../Custom-Button/CustomButton"
 import "./../Sign-Up/SignUp.css"
 class SignIn extends React.Component{
@@ -46,6 +46,9 @@ class SignIn extends React.Component{
                                 <div className="text-center">
                                     {/* <input type="submit" value="Submit" className="signup-btn" /> */}
                                     <CustomButton>Submit</CustomButton>
+                                    <CustomButton onClick={signInWithGoogle} signIn={true} type="button">
+                    Google
+                  </CustomButton>
                                 </div>
                                 <p>{this.state.error ? this.state.error : ""}</p>
                             </form>

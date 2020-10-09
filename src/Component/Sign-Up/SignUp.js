@@ -86,11 +86,9 @@ class SignUp extends React.Component {
                   />
                 </div>
                 <div className="text-center">
-                  {/* <input type="submit" value="Submit" className="signup-btn" /> */}
-                  <CustomButton>Submit</CustomButton>
-                  <CustomButton onClick={signInWithGoogle} signIn={true} type="button">
-                    Google
-                  </CustomButton>
+                  <input type="submit" value="Submit" className="signup-btn" />
+                  {/* <CustomButton>Submit</CustomButton> */}
+                  
                 </div>
                 <p>{this.state.error ? this.state.error : ""}</p>
                 <p>Already have an account ? <Link to="/signin">Login</Link></p>
