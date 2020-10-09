@@ -4,7 +4,7 @@ import CategoryItem from "../../Component/Category-Item/CategoryItem";
 import "./Homepage.css";
 const Homepage = () => {
   return (
-    jjjj
+    jjjjjj
     <div>
       <CategoryItem />
     </div>
