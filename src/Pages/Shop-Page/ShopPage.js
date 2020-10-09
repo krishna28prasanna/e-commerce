@@ -1,14 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
+import React,{lazy,Suspense} from "react";
 import { Route } from "react-router-dom";
-import CollectionPreview from "../../Component/Shop-Collection/CollectionPreview";
-import ShopCollection from "../../Component/Shop-Collection/ShopCollection";
+const CollectionPreview = lazy(()=>import("../../Component/Shop-Collection/CollectionPreview"))
+const ShopCollection = lazy(()=>import("../../Component/Shop-Collection/ShopCollection"))
 const ShopPage = (props) => {
-  console.log('page - ',props)
     return (
       <div>
+        <Suspense fallback={<div>Loading ...</div>}>
         <Route path={`${props.match.path}`} component={ShopCollection} exact /> 
         <Route path={`${props.match.path}/:categoryId`} component={CollectionPreview} exact /> 
+        </Suspense>
       </div>
     );
 }

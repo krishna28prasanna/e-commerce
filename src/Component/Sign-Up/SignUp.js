@@ -1,57 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomButton from "../Custom-Button/CustomButton";
-import {
-  auth,
-  createUserProfileDocument,
-  signInWithGoogle,
-} from "../../firebase/firebase.utils";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-class SignUp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      error: null,
-    };
-  }
-  handleChange = (e) => {
-    this.setState({
+const SignUp = () => {
+  const [userCredentials,setUserCredentials] = useState({displayName:"",email:"",password:""})
+  const handleChange = (e) => {
+    setUserCredentials({...userCredentials,
       [e.target.name]: e.target.value,
     });
   };
-  handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { displayName, email, password } = this.state;
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserProfileDocument(user, { displayName });
-      this.setState({
-          error : null
-      })
-    } catch (error) {
-      // console.log(error)
-      this.setState({
-        error: error.message,
-      });
-    }
+    const { displayName, email, password } = userCredentials;
     const signUpData = { displayName, email, password };
 
     console.log(signUpData);
   };
-  render() {
+  const { displayName, email, password } = userCredentials
     return (
       <div>
         <h1>Sign Up</h1>
         <div className="container">
           <div className="row">
             <div className="offset-4 col-md-4">
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="displayName">Name</label>
                   <input
@@ -59,8 +31,8 @@ class SignUp extends React.Component {
                     className="form-control"
                     id="displayName"
                     name="displayName"
-                    value={this.state.displayName}
-                    onChange={this.handleChange}
+                    value={displayName}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
@@ -70,8 +42,8 @@ class SignUp extends React.Component {
                     className="form-control"
                     id="email"
                     name="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
+                    value={email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
@@ -81,8 +53,8 @@ class SignUp extends React.Component {
                     className="form-control"
                     id="password"
                     name="password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
+                    value={password}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="text-center">
@@ -90,7 +62,6 @@ class SignUp extends React.Component {
                   {/* <CustomButton>Submit</CustomButton> */}
                   
                 </div>
-                <p>{this.state.error ? this.state.error : ""}</p>
                 <p>Already have an account ? <Link to="/signin">Login</Link></p>
               </form>
             </div>
@@ -99,5 +70,4 @@ class SignUp extends React.Component {
       </div>
     );
   }
-}
 export default SignUp;

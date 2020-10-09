@@ -1,56 +1,35 @@
-import React from "react"
-import { auth, signInWithGoogle } from "../../firebase/firebase.utils"
+import React, { useState } from "react"
 import CustomButton from "../Custom-Button/CustomButton"
 import "./../Sign-Up/SignUp.css"
-class SignIn extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            email : "",
-            password : "",
-            error : ""
-        }
+const SignIn = () => {
+    const [userCredentials,setUserCredentials] = useState({email:"",password:""})
+    const handleChange = (e) =>{
+        setUserCredentials({...userCredentials, [e.target.name] : e.target.value})
     }
-    handleChange = (e) =>{
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-    }
-    handleSubmit = async (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
-        const {email,password} = this.state
-        try {
-            await auth.signInWithEmailAndPassword(email,password)
-        } catch (error) {
-            this.setState({
-                error : error.message
-            })
-        }
+        const {email,password} = userCredentials
     }
-    render(){
+    const {email,password} = userCredentials
         return(
             <div>
                 <h1>SignIn</h1>
                 <div className="container">
                     <div className="row">
                         <div className="offset-4 col-md-4">
-                            <form onSubmit={this.handleSubmit}>
+                            <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="email">Email</label>
-                                    <input type="email" className="form-control" id="email" name="email" value={this.state.email} onChange={this.handleChange}  />
+                                    <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange}  />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Password</label>
-                                    <input type="password" className="form-control" id="password" name="password" value={this.state.password} onChange={this.handleChange}  />
+                                    <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange}  />
                                 </div>
                                 <div className="text-center">
                                     {/* <input type="submit" value="Submit" className="signup-btn" /> */}
                                     <CustomButton>Submit</CustomButton>
-                                    <CustomButton onClick={signInWithGoogle} signIn={true} type="button">
-                    Google
-                  </CustomButton>
                                 </div>
-                                <p>{this.state.error ? this.state.error : ""}</p>
                             </form>
                         </div>
                     </div>
@@ -58,5 +37,4 @@ class SignIn extends React.Component{
             </div>
         )
     }
-}
 export default SignIn
