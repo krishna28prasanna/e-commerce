@@ -1,0 +1,15 @@
+/* .error-img {
+    object-fit: cover;
+    width: 500px;
+    height: 400px;
+}
+.error-div{
+    min-width: 960px;
+    height: 400px;
+} */
+
+.error-div {
+    text-align: center;
+    display: block;
+    margin-top: -140px;
+  }

@@ -16,23 +16,11 @@ const Header = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link><Link to="/">Home</Link></Nav.Link>
+            <Link to="/">Home</Link>
           </Nav>
           <Nav>
-            <Nav.Link><Link to="/shop">Shop</Link></Nav.Link>
-            {props.currentUser ? (
-              <Nav.Link
-                onClick={() => {
-                  auth.signOut();
-                }}
-              >
-                Sign Out
-              </Nav.Link>
-            ) : (
-              <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
-            )}
+            <Link to="/shop">Shop</Link>
             <CartIcon />
-            <Nav.Link><Link to="/">Contact Us</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse> 
       </Navbar>

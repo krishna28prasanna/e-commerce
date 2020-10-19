@@ -1,5 +1,6 @@
 const initialState = {
-    currentUser : null
+    currentUser : null,
+    users : ["krishna@gmail.com","user@gmail.com"]
 }
 
 const userReducer = (state=initialState,action)=>{

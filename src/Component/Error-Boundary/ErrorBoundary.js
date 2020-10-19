@@ -1,4 +1,5 @@
 import React from "react"
+import Error404 from "./Error404"
 
 class ErrorBoundary extends React.Component{
     
@@ -20,7 +21,7 @@ class ErrorBoundary extends React.Component{
     render(){
         console.log("Error boundary")
         if(this.state.hasErrored){
-            return <div>Something went wrong</div>
+            return <Error404 />
         }
         return this.props.children
     }

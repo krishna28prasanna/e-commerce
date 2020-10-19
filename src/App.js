@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import ErrorBoundary from "./Component/Error-Boundary/ErrorBoundary";
 import Header from "./Component/Header/Header";
+import SpinnerIcon from "./Component/Spinner/Spinner";
 const Homepage = lazy(() => import("./Pages/Home-Page/Homepage"));
 const ShopPage = lazy(() => import("./Pages/Shop-Page/ShopPage"));
 const CheckoutPage = lazy(() => import("./Pages/Checkout-page/CheckoutPage"));
@@ -16,18 +17,10 @@ class App extends React.Component {
           <Header />
           <Switch>
             <ErrorBoundary>
-              <Suspense fallback={<div>Loading ...</div>}>
+              <Suspense fallback={SpinnerIcon}>
                 <Route path="/" component={Homepage} exact={true} />
                 <Route path="/shop" component={ShopPage} />
                 <Route path="/checkout" component={CheckoutPage} />
-                <Route
-                  path="/signup"
-                  render={() => (true ? <Redirect to="/" /> : <Register />)}
-                />
-                <Route
-                  path="/signin"
-                  render={() => (true ? <Redirect to="/" /> : <Login />)}
-                />
               </Suspense>
             </ErrorBoundary>
           </Switch>

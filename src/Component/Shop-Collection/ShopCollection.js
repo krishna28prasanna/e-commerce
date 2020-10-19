@@ -16,8 +16,8 @@ const ShopCollection = (props) => {
                 .filter((item, i) => i < 4)
                 .map((item) => {
                   return (
-                    <div className="col-md-3 mb-4" key={item.id}>
-                      <ShopPreview item={item} />
+                    <div className="col-md-3 mb-4" key={item.id} >
+                      <ShopPreview item={item}/>
                     </div>
                   );
                 })}

@@ -1,9 +1,8 @@
 import React from "react";
 import "./CustomButton.css"
-const CustomButton = ({ children,signIn,...otherprops }) => {
-  console.log("button - ",otherprops)
+const CustomButton = ({children,...otherProps}) => {
   return (
-    <button className={`${signIn ? "google-login" : "custom-btn"}`} {...otherprops}>
+    <button className="signIn" {...otherProps}>
       {children}
     </button>
   );
